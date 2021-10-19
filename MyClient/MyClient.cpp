@@ -21,18 +21,27 @@ MyClient::MyClient(const QString& strHost,
 
     m_ptxtInfo->setReadOnly(true);
 
-    QPushButton* pcmd = new QPushButton("&Send");
-    connect(pcmd, SIGNAL(clicked()), SLOT(slotSendToServer()));
+    QPushButton* pcmd1 = new QPushButton("ipconfig/ifconfig");
+    connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendToServer()));
+    connect(m_ptxtInput, SIGNAL(returnPressed()),
+            this, SLOT(slotSendToServer())
+            );
+
+    QPushButton* pcmd2 = new QPushButton("&Send");
+    connect(pcmd2, SIGNAL(clicked()), SLOT(slotSendToServer()));
     connect(m_ptxtInput, SIGNAL(returnPressed()),
             this, SLOT(slotSendToServer())
             );
 
     //Layout setup
     QVBoxLayout* pvbxLayout = new QVBoxLayout;
+    QHBoxLayout* phbxLayout = new QHBoxLayout;
     pvbxLayout->addWidget(new QLabel("<H1>Client</H1>"));
     pvbxLayout->addWidget(m_ptxtInfo);
     pvbxLayout->addWidget(m_ptxtInput);
-    pvbxLayout->addWidget(pcmd);
+    phbxLayout->addWidget(pcmd1);
+    phbxLayout->addWidget(pcmd2);
+    pvbxLayout->addLayout(phbxLayout);
     setLayout(pvbxLayout);
 }
 

@@ -253,6 +253,7 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\resolve_config.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\exclusive_builds_post.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\default_post.prf \
+		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\win32\console.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\qml_debug.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\entrypoint.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\precompile_header.prf \
@@ -265,7 +266,6 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\uic.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\qmake_use.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\file_copies.prf \
-		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\win32\windows.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\testcase_targets.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\exceptions.prf \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\yacc.prf \
@@ -275,13 +275,11 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Gui.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Network.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core.prl \
-		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPoint.prl \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\build_pass.prf \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgetsd.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Guid.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Networkd.prl \
-		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Cored.prl \
-		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPointd.prl
+		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Cored.prl
 	$(QMAKE) -o Makefile ..\MyServer\MyServer.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\spec_pre.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\common\windows-desktop.conf:
@@ -452,6 +450,7 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\resolve_config.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\exclusive_builds_post.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\default_post.prf:
+..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\win32\console.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\qml_debug.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\entrypoint.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\precompile_header.prf:
@@ -464,7 +463,6 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\uic.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\qmake_use.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\file_copies.prf:
-..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\win32\windows.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\testcase_targets.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\exceptions.prf:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\yacc.prf:
@@ -474,13 +472,11 @@ Makefile: ..\MyServer\MyServer.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Gui.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Network.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core.prl:
-..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPoint.prl:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\build_pass.prf:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgetsd.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Guid.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Networkd.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Cored.prl:
-..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPointd.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\MyServer\MyServer.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
 
