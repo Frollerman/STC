@@ -1,5 +1,6 @@
 #include "MyClient.h"
 #include <QtWidgets>
+#include <QTextCodec>
 
 MyClient::MyClient(const QString& strHost,
                    int nPort,
@@ -17,15 +18,14 @@ MyClient::MyClient(const QString& strHost,
             );
 
     m_ptxtInfo = new QTextEdit;
+//    QTextCodec *codec = QTextCodec::codecForName("IBM 866");
+//    QTextCodec::setCodecForLocale(codec);
     m_ptxtInput = new QLineEdit;
 
     m_ptxtInfo->setReadOnly(true);
 
     QPushButton* pcmd1 = new QPushButton("ipconfig/ifconfig");
-    connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendToServer()));
-    connect(m_ptxtInput, SIGNAL(returnPressed()),
-            this, SLOT(slotSendToServer())
-            );
+//    connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendIpConfig()));
 
     QPushButton* pcmd2 = new QPushButton("&Send");
     connect(pcmd2, SIGNAL(clicked()), SLOT(slotSendToServer()));
@@ -105,3 +105,8 @@ void MyClient::slotConnected()
 {
     m_ptxtInfo->append("Received the connected() signal");
 }
+
+//void MyClient::slotSendIpConfig()
+//{
+//    m_pTcpSocket->write("ipconfig");
+//}

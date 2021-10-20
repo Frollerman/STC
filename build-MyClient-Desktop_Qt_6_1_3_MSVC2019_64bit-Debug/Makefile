@@ -274,12 +274,14 @@ Makefile: ..\MyClient\MyClient.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgets.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Gui.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Network.prl \
+		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core5Compat.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPoint.prl \
 		..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\build_pass.prf \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgetsd.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Guid.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Networkd.prl \
+		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core5Compatd.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Cored.prl \
 		..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPointd.prl
 	$(QMAKE) -o Makefile ..\MyClient\MyClient.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -473,12 +475,14 @@ Makefile: ..\MyClient\MyClient.pro ..\..\Qt\6.1.3\msvc2019_64\mkspecs\win32-msvc
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgets.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Gui.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Network.prl:
+..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core5Compat.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPoint.prl:
 ..\..\Qt\6.1.3\msvc2019_64\mkspecs\features\build_pass.prf:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Widgetsd.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Guid.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Networkd.prl:
+..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Core5Compatd.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6Cored.prl:
 ..\..\Qt\6.1.3\msvc2019_64\lib\Qt6EntryPointd.prl:
 qmake: FORCE
@@ -495,6 +499,11 @@ clean: debug-clean release-clean  FORCE
 distclean: debug-distclean release-distclean  FORCE
 	-$(DEL_FILE) Makefile
 	-$(DEL_FILE) .qmake.stash MyClient.pdb
+
+.beforebuild: FORCE
+	chcp 1251
+
+$(MAKEFILE): .beforebuild
 
 debug-mocclean:
 	@set MAKEFLAGS=$(MAKEFLAGS)

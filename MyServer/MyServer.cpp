@@ -1,34 +1,24 @@
-#include <QtWidgets>
+#include <QTime>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QProcess>
+#include <QTextCodec>
 #include "MyServer.h"
 
-MyServer::MyServer(int nPort, QWidget* pwgt /*=nullptr*/) : QWidget(pwgt)
+MyServer::MyServer(int nPort, QObject* pobj /*=nullptr*/) : QObject(pobj)
                                                           , m_nNextBlockSize(0)
 {
     m_ptcpServer = new QTcpServer(this);
     if(!m_ptcpServer->listen(QHostAddress::Any, nPort))
     {
-        QMessageBox::critical(0,
-                              "Server Error",
-                              "Unable to start the server:"
-                              + m_ptcpServer->errorString()
-                              );
+        qDebug() << "Server Error: Unable to start the server";
         m_ptcpServer->close();
         return;
     }
     connect(m_ptcpServer, SIGNAL(newConnection()),
             this, SLOT(slotNewConnection())
             );
-
-    m_ptxt = new QTextEdit;
-    m_ptxt->setReadOnly(true);
-
-    //Layout setup
-    QVBoxLayout* pvbxLayout = new QVBoxLayout;
-    pvbxLayout->addWidget(new QLabel("<H1>Server</H1>"));
-    pvbxLayout->addWidget(m_ptxt);
-    setLayout(pvbxLayout);
+    qDebug() << "Server successfully started" << Qt::endl;
 }
 
 /*virtual*/ void MyServer::slotNewConnection()
@@ -70,13 +60,33 @@ void MyServer::slotReadClient()
 
         QString strMessage =
                 time.toString() + " " + "Client has sent - " + str;
-        m_ptxt->append(strMessage);
+        qDebug() << strMessage;
+
+        QByteArray output;
+
+        if(str == "ipconfig")
+        {
+            QProcess ipcfg;
+//            ipcfg.start("chcp 65001");
+//            ipcfg.waitForFinished();
+            ipcfg.start(str);
+            ipcfg.waitForFinished();
+            output = ipcfg.readAllStandardOutput();
+            qDebug() << "Finished IpConfig";
+        }
+
+        QTextCodec *codec = QTextCodec::codecForName("IBM 866");
+        QString res = codec->toUnicode(output);
 
         m_nNextBlockSize = 0;
 
         sendToClient(pClientSocket,
                      "Server Response: Received \"" + str + "\""
                      );
+        if(res != "")
+        {
+            sendToClient(pClientSocket, res);
+        }
     }
 }
 

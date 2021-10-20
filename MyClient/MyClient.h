@@ -25,6 +25,7 @@ private slots:
     void slotError(QAbstractSocket::SocketError);
     void slotSendToServer();
     void slotConnected();
+//    void slotSendIpConfig();
 };
 
 #endif // MYCLIENT_H
