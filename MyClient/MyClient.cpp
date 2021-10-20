@@ -18,14 +18,12 @@ MyClient::MyClient(const QString& strHost,
             );
 
     m_ptxtInfo = new QTextEdit;
-//    QTextCodec *codec = QTextCodec::codecForName("IBM 866");
-//    QTextCodec::setCodecForLocale(codec);
     m_ptxtInput = new QLineEdit;
 
     m_ptxtInfo->setReadOnly(true);
 
     QPushButton* pcmd1 = new QPushButton("ipconfig/ifconfig");
-//    connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendIpConfig()));
+    connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendIpConfig()));
 
     QPushButton* pcmd2 = new QPushButton("&Send");
     connect(pcmd2, SIGNAL(clicked()), SLOT(slotSendToServer()));
@@ -106,7 +104,16 @@ void MyClient::slotConnected()
     m_ptxtInfo->append("Received the connected() signal");
 }
 
-//void MyClient::slotSendIpConfig()
-//{
-//    m_pTcpSocket->write("ipconfig");
-//}
+void MyClient::slotSendIpConfig()
+{
+    QByteArray arrBlock;
+    QString ip = "ipconfig";
+    QDataStream out(&arrBlock, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_5_15);
+    out << quint16(0) << QTime::currentTime() << ip;
+
+    out.device()->seek(0);
+    out << quint16(arrBlock.size() - sizeof(quint16));
+
+    m_pTcpSocket->write(arrBlock);
+}

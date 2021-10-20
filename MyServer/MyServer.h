@@ -24,6 +24,7 @@ public:
 public slots:
     virtual void slotNewConnection();
     void slotReadClient();
+    void ipConfig(QTcpSocket* pClientSocket);
 };
 
 #endif // MYSERVER_H

@@ -62,30 +62,15 @@ void MyServer::slotReadClient()
                 time.toString() + " " + "Client has sent - " + str;
         qDebug() << strMessage;
 
-        QByteArray output;
-
-        if(str == "ipconfig")
-        {
-            QProcess ipcfg;
-//            ipcfg.start("chcp 65001");
-//            ipcfg.waitForFinished();
-            ipcfg.start(str);
-            ipcfg.waitForFinished();
-            output = ipcfg.readAllStandardOutput();
-            qDebug() << "Finished IpConfig";
-        }
-
-        QTextCodec *codec = QTextCodec::codecForName("IBM 866");
-        QString res = codec->toUnicode(output);
-
         m_nNextBlockSize = 0;
 
         sendToClient(pClientSocket,
                      "Server Response: Received \"" + str + "\""
                      );
-        if(res != "")
+
+        if(str == "ipconfig")
         {
-            sendToClient(pClientSocket, res);
+            ipConfig(pClientSocket);
         }
     }
 }
@@ -101,4 +86,30 @@ void MyServer::sendToClient(QTcpSocket *pSocket, const QString &str)
     out << quint16(arrBlock.size() - sizeof(quint16));
 
     pSocket->write(arrBlock);
+}
+
+void MyServer::ipConfig(QTcpSocket* pClientSocket)
+{
+    QByteArray output;
+
+#ifdef Q_OS_WIN
+    QProcess ipcfg;
+    ipcfg.start("ipconfig");
+    ipcfg.waitForFinished();
+    output = ipcfg.readAllStandardOutput();
+    qDebug() << "Finished IpConfig" << Qt::endl;
+#else
+    QProcess ifcfg;
+    ifcfg.start("ifconfig");
+    ifcfg.waitForFinished();
+    output = ifcfg.readAllStandardOutput();
+    qDebug() << "Finished IfConfig" << Qt::endl;
+#endif
+
+    QTextCodec *codec = QTextCodec::codecForName("IBM 866");
+    QString res = codec->toUnicode(output);
+
+    m_nNextBlockSize = 0;
+
+    sendToClient(pClientSocket, res);
 }
