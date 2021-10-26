@@ -2,6 +2,7 @@
 #define MYSERVER_H
 
 #include <QObject>
+#include <QDir>
 
 class QTcpServer;
 class QTextEdit;
@@ -20,6 +21,8 @@ private:
 
 public:
     MyServer(int nPort, QObject* pobj = nullptr);
+
+    void find(const QDir& dir, unsigned int& count, QString str);
 
 public slots:
     virtual void slotNewConnection();

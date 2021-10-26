@@ -1,8 +1,10 @@
 #include <QTime>
+#include <QCoreApplication>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QProcess>
 #include <QTextCodec>
+#include <QFileInfo>
 #include "MyServer.h"
 
 MyServer::MyServer(int nPort, QObject* pobj /*=nullptr*/) : QObject(pobj)
@@ -68,9 +70,18 @@ void MyServer::slotReadClient()
                      "Server Response: Received \"" + str + "\""
                      );
 
-        if(str == "ipconfig")
+        if(str == "command_ipconfig")
         {
             ipConfig(pClientSocket);
+        }
+        else
+        {
+            QString dir = QCoreApplication::applicationDirPath();
+            unsigned int file_count = 0;
+
+            find(QDir(dir), file_count, str);
+            QString result = QString::number(file_count) + " file(s) has (have) been found in " + dir;
+            sendToClient(pClientSocket, result);
         }
     }
 }
@@ -112,4 +123,15 @@ void MyServer::ipConfig(QTcpSocket* pClientSocket)
     m_nNextBlockSize = 0;
 
     sendToClient(pClientSocket, res);
+}
+
+void MyServer::find(const QDir& dir, unsigned int& count, QString str)
+{
+    QCoreApplication::processEvents();
+
+    QStringList mask;
+    mask << str;
+    QStringList listFiles = dir.entryList(mask, QDir::Files);
+
+    count = listFiles.size();
 }

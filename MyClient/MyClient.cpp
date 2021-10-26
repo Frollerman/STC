@@ -18,14 +18,14 @@ MyClient::MyClient(const QString& strHost,
             );
 
     m_ptxtInfo = new QTextEdit;
-    m_ptxtInput = new QLineEdit;
+    m_ptxtInput = new QLineEdit("*");
 
     m_ptxtInfo->setReadOnly(true);
 
     QPushButton* pcmd1 = new QPushButton("ipconfig/ifconfig");
     connect(pcmd1, SIGNAL(clicked()), SLOT(slotSendIpConfig()));
 
-    QPushButton* pcmd2 = new QPushButton("&Send");
+    QPushButton* pcmd2 = new QPushButton("&Find");
     connect(pcmd2, SIGNAL(clicked()), SLOT(slotSendToServer()));
     connect(m_ptxtInput, SIGNAL(returnPressed()),
             this, SLOT(slotSendToServer())
@@ -96,7 +96,7 @@ void MyClient::slotSendToServer()
     out << quint16(arrBlock.size() - sizeof(quint16));
 
     m_pTcpSocket->write(arrBlock);
-    m_ptxtInput->setText("");
+    //m_ptxtInput->setText("");
 }
 
 void MyClient::slotConnected()
@@ -107,7 +107,7 @@ void MyClient::slotConnected()
 void MyClient::slotSendIpConfig()
 {
     QByteArray arrBlock;
-    QString ip = "ipconfig";
+    QString ip = "command_ipconfig";
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_15);
     out << quint16(0) << QTime::currentTime() << ip;

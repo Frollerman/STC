@@ -249,6 +249,26 @@ release\moc_MyServer.cpp: ..\MyServer\MyServer.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qproperty.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qshareddata.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qpropertyprivate.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QDir \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdir.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfile.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfiledevice.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qiodevice.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfileinfo.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdatetime.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcalendar.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qlocale.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qvariant.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qmap.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qhash.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdebug.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qtextstream.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qstringconverter.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qset.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
 		release\moc_predefs.h \
 		..\..\Qt\6.1.3\msvc2019_64\bin\moc.exe
 	D:\Qt\6.1.3\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/STC/build-MyServer-Desktop_Qt_6_1_3_MSVC2019_64bit-Release/release/moc_predefs.h -ID:/Qt/6.1.3/msvc2019_64/mkspecs/win32-msvc -ID:/STC/MyServer -ID:/Qt/6.1.3/msvc2019_64/include -ID:/Qt/6.1.3/msvc2019_64/include/QtWidgets -ID:/Qt/6.1.3/msvc2019_64/include/QtGui -ID:/Qt/6.1.3/msvc2019_64/include/QtNetwork -ID:/Qt/6.1.3/msvc2019_64/include/QtCore5Compat -ID:/Qt/6.1.3/msvc2019_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" ..\MyServer\MyServer.h -o release\moc_MyServer.cpp
@@ -353,6 +373,9 @@ release\MyServer.obj: ..\MyServer\MyServer.cpp ..\..\Qt\6.1.3\msvc2019_64\includ
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcontiguouscache.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QCoreApplication \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcoreapplication.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qeventloop.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtNetwork\QTcpServer \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtNetwork\qtcpserver.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtNetwork\qtnetworkglobal.h \
@@ -368,8 +391,14 @@ release\MyServer.obj: ..\MyServer\MyServer.cpp ..\..\Qt\6.1.3\msvc2019_64\includ
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore5Compat\qtextcodec.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore5Compat\qcore5global.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore5Compat\qtcore5compat-config.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QFileInfo \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfileinfo.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfile.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfiledevice.h \
 		..\MyServer\MyServer.h \
-		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QObject
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QObject \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QDir \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdir.h
 
 release\main.obj: ..\MyServer\main.cpp ..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QCoreApplication \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -452,7 +481,17 @@ release\main.obj: ..\MyServer\main.cpp ..\..\Qt\6.1.3\msvc2019_64\include\QtCore
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer.h \
 		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
 		..\MyServer\MyServer.h \
-		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QObject
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QObject \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\QDir \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdir.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfile.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfiledevice.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qiodevice.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qfileinfo.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qdatetime.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qcalendar.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qlocale.h \
+		..\..\Qt\6.1.3\msvc2019_64\include\QtCore\qvariant.h
 
 release\moc_MyServer.obj: release\moc_MyServer.cpp 
 
